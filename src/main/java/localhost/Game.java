@@ -17,7 +17,7 @@ public class Game {
         System.out.println("Игра Виселица - угадай слово.");
         Scanner scanner = new Scanner(System.in);
         boolean wantPlay = true;
-        while (true) {
+        do {
             System.out.println("S - Старт новой игры;\nE - выход");
             switch (scanner.nextLine().toLowerCase()) {
                 case ("s"): {
@@ -31,10 +31,7 @@ public class Game {
                 default:
                     System.out.println("-----\nВведите правильный символ\n-----\n");
             }
-            if (!wantPlay) {
-                break;
-            }
-        }
+        } while (wantPlay);
     }
 
     private void startGame() {
@@ -90,9 +87,7 @@ public class Game {
 
     private StringBuilder createWordMask(String word) {
         StringBuilder wordMask = new StringBuilder();
-        for (int i = 0; i < word.length(); i++) {
-            wordMask.append("*");
-        }
+        wordMask.append("*".repeat(word.length()));
         return wordMask;
     }
 
