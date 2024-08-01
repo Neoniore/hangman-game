@@ -35,8 +35,6 @@ public class Game {
         char inputSumbol;
         List<String> usedWords = new ArrayList<>();
 
-        System.out.println(selectedWord);
-
         do {
             if (!usedWords.isEmpty()) {
                 System.out.printf("Уже использованные буквы: %s\n", usedWords);
