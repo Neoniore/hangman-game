@@ -55,7 +55,7 @@ public class Game {
             inputSumbol = scanner.next().charAt(0);
             System.out.println(inputSumbol);
 
-            if (selectedWord.contains(String.valueOf(inputSumbol))) {
+            if (selectedWord.toLowerCase().contains( String.valueOf(inputSumbol).toLowerCase() )) {
                 System.out.printf("Буква %s есть в загаданном слове!\n", inputSumbol);
                 usedWords.add(String.valueOf(inputSumbol));
                 wordMask = changeWordMask(selectedWord, wordMask, inputSumbol);
@@ -69,9 +69,9 @@ public class Game {
                 break;
             }
 
-            displayingTheStateOfTheGallows(err) {
-
-            };
+//            displayingTheStateOfTheGallows(err) {
+//
+//            };
 
             System.out.printf("Уже использованные буквы: %s\n", usedWords);
         }while(err <=5);
@@ -91,8 +91,8 @@ public class Game {
 
     private StringBuilder changeWordMask(String word, StringBuilder wordMask, char sumbol) {
         for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == sumbol) {
-                wordMask.setCharAt(i,sumbol);
+            if (String.valueOf(word.charAt(i)).equalsIgnoreCase(String.valueOf(sumbol))) {
+                wordMask.setCharAt(i,word.charAt(i));
             }
         }
         return wordMask;
