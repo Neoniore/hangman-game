@@ -51,8 +51,10 @@ public class Game {
         do {
             System.out.println(wordMask);
             System.out.println("Введите букву:");
+
             inputSumbol = scanner.next().charAt(0);
             System.out.println(inputSumbol);
+
             if (selectedWord.contains(String.valueOf(inputSumbol))) {
                 System.out.printf("Буква %s есть в загаданном слове!\n", inputSumbol);
                 usedWords.add(String.valueOf(inputSumbol));
@@ -62,12 +64,21 @@ public class Game {
                 err++;
                 usedWords.add(String.valueOf(inputSumbol));
             }
-            if (selectedWord.equals(wordMask)) {
-                System.out.println("Вы победили!");
+            if (selectedWord.equalsIgnoreCase(String.valueOf(wordMask))) {
+                System.out.println("\n-----\nВы победили!\n-----\n");
                 break;
             }
+
+            displayingTheStateOfTheGallows(err) {
+
+            };
+
             System.out.printf("Уже использованные буквы: %s\n", usedWords);
-        }while(err <=5 );
+        }while(err <=5);
+
+        if (err >= 5) {
+
+        }
     }
 
     private StringBuilder createWordMask(String word) {
@@ -78,8 +89,7 @@ public class Game {
         return wordMask;
     }
 
-    private StringBuilder changeWordMask(String word, StringBuilder Wordmask, char sumbol) {
-        StringBuilder wordMask = new StringBuilder();
+    private StringBuilder changeWordMask(String word, StringBuilder wordMask, char sumbol) {
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) == sumbol) {
                 wordMask.setCharAt(i,sumbol);
