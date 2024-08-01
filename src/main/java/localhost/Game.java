@@ -44,20 +44,18 @@ public class Game {
 
             inputSumbol = scanner.next().charAt(0);
 
+            if (usedWords.contains(String.valueOf(inputSumbol).toUpperCase())) {
+                continue;
+            }
+
             if (selectedWord.toLowerCase().contains(String.valueOf(inputSumbol).toLowerCase())) {
-                if (usedWords.contains(String.valueOf(inputSumbol).toUpperCase())) {
-                    continue;
-                }
                 System.out.printf("Буква %s есть в загаданном слове!\n", inputSumbol);
                 wordMask = changeWordMask(selectedWord, wordMask, inputSumbol);
             } else {
                 System.out.printf("Буквы %s нет в загаданном слове!\n", inputSumbol);
-                if (usedWords.contains(String.valueOf(inputSumbol).toUpperCase())) {
-                    continue;
-                } else {
                     err++;
                 }
-            }
+
             usedWords.add(String.valueOf(inputSumbol).toUpperCase());
 
             if (selectedWord.equalsIgnoreCase(String.valueOf(wordMask))) {
@@ -72,7 +70,6 @@ public class Game {
         if (err == 5) {
             System.out.println("\n-----\nВы проиграли!\n-----\n");
         }
-
     }
 
     private String choiceOfWord() {
