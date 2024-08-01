@@ -48,19 +48,29 @@ public class Game {
         System.out.println(selectedWord);
 
         do {
+            if (!usedWords.isEmpty()) {
+                System.out.printf("Уже использованные буквы: %s\n", usedWords);
+            }
+
             System.out.println("Введите букву:");
 
             inputSumbol = scanner.next().charAt(0);
 
             if (selectedWord.toLowerCase().contains(String.valueOf(inputSumbol).toLowerCase())) {
+                if (usedWords.contains(String.valueOf(inputSumbol).toUpperCase())) {
+                    continue;
+                }
                 System.out.printf("Буква %s есть в загаданном слове!\n", inputSumbol);
-                usedWords.add(String.valueOf(inputSumbol));
                 wordMask = changeWordMask(selectedWord, wordMask, inputSumbol);
             } else {
                 System.out.printf("Буквы %s нет в загаданном слове!\n", inputSumbol);
-                err++;
-                usedWords.add(String.valueOf(inputSumbol));
+                if (usedWords.contains(String.valueOf(inputSumbol).toUpperCase())) {
+                    continue;
+                } else {
+                    err++;
+                }
             }
+            usedWords.add(String.valueOf(inputSumbol).toUpperCase());
 
             System.out.println(wordMask);
 
@@ -70,7 +80,6 @@ public class Game {
             }
 
             displayingTheStateOfTheGallows(err);
-            System.out.printf("Уже использованные буквы: %s\n", usedWords);
         } while (err < 5);
 
         if (err == 5) {
