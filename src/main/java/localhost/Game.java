@@ -41,7 +41,7 @@ public class Game {
             if (!usedWords.isEmpty()) {
                 System.out.printf("Уже использованные буквы: %s\n", usedWords);
             }
-
+            System.out.println(wordMask);
             System.out.println("Введите букву:");
 
             inputSumbol = scanner.next().charAt(0);
@@ -62,10 +62,9 @@ public class Game {
             }
             usedWords.add(String.valueOf(inputSumbol).toUpperCase());
 
-            System.out.println(wordMask);
-
             if (selectedWord.equalsIgnoreCase(String.valueOf(wordMask))) {
                 System.out.println("\n-----\nВы победили!\n-----\n");
+                System.out.println(wordMask);
                 break;
             }
 
@@ -113,11 +112,11 @@ public class Game {
                     break;
                 }
                 case (4): {
-                    System.out.println("____________\n| /        |\n|/         |\n|        (o_o)\n|          |\n|         /|\\\n|          |\n|         /|\\\n|\n|\n|________________|");
+                    System.out.println("____________\n| /        |\n|/         |\n|        (o_o)\n|          |\n|         /|\\\n|          |\n|         / \\\n|\n|\n|________________|");
                     break;
                 }
                 case (5): {
-                    System.out.println("____________\n| /        |\n|/         |\n|        (x_x)\n|          |\n|         /|\\\n|          |\n|         /|\\\n|\n|\n|________________|");
+                    System.out.println("____________\n| /        |\n|/         |\n|        (x_x)\n|          |\n|         /|\\\n|          |\n|         / \\\n|\n|\n|________________|");
                     break;
                 }
             }
