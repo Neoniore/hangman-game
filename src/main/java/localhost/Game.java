@@ -6,13 +6,6 @@ import java.util.Scanner;
 
 public class Game {
 
-    public Game() {
-    }
-
-    private String choiceOfWord() {
-        return Dictionary.getNoun();
-    }
-
     public void introGame() {
         System.out.println("Игра Виселица - угадай слово.");
         Scanner scanner = new Scanner(System.in);
@@ -85,6 +78,10 @@ public class Game {
 
     }
 
+    private String choiceOfWord() {
+        return Dictionary.getNoun();
+    }
+
     private StringBuilder createWordMask(String word) {
         StringBuilder wordMask = new StringBuilder();
         wordMask.append("*".repeat(word.length()));
@@ -104,23 +101,23 @@ public class Game {
         System.out.printf("Ошибок допущено: %d\nОсталось ошибок: %d\n", err, 5-err);
             switch (err) {
                 case (1): {
-                    System.out.println("|");
+                    System.out.println("____________\n|\n|\n|\n|\n|\n|\n|\n|\n|________________|\n");
                     break;
                 }
                 case (2): {
-                    System.out.println("||");
+                    System.out.println("____________\n| /\n|/\n|\n|\n|\n|\n|\n|\n|\n|________________|");
                     break;
                 }
                 case (3): {
-                    System.out.println("|||");
+                    System.out.println("____________\n| /        |\n|/         |\n|\n|\n|\n|\n|\n|\n|\n|________________|");
                     break;
                 }
                 case (4): {
-                    System.out.println("||||");
+                    System.out.println("____________\n| /        |\n|/         |\n|        (o_o)\n|          |\n|         /|\\\n|          |\n|         /|\\\n|\n|\n|________________|");
                     break;
                 }
                 case (5): {
-                    System.out.println("|||||");
+                    System.out.println("____________\n| /        |\n|/         |\n|        (x_x)\n|          |\n|         /|\\\n|          |\n|         /|\\\n|\n|\n|________________|");
                     break;
                 }
             }
